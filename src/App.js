@@ -1,26 +1,33 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import FormQuotes from './components/FormQuotes';
+import ResultQuotes from './components/ResultQuotes';
+import Loader from './components/Loader';
+import getChange from './services/getChange';
+import './App.scss';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  const [currency, setCurrency] = React.useState(null);
+  const [loading, setLoading] = React.useState(false);
+  const [quotes, setQuotes] = React.useState([]);
+  const submit =(data)=>{
+    setLoading(true);
+    setCurrency(data.currency);
+    getChange(data.currency, data.date).then((data)=>{
+      setQuotes(data);
+      setLoading(false);
+    });
+  };
+  return (<>
+    <main>
+      <h1>Histórico de cotizaciones</h1>
+      <FormQuotes submit={submit} loading={loading}></FormQuotes>
+      <div style={{textAlign: 'center'}}>
+      {loading
+      ? <Loader/>
+      :<ResultQuotes quotes={quotes} currentCurrency={currency}></ResultQuotes>}
+      </div>
+    </main>
+  </>);
 }
 
 export default App;

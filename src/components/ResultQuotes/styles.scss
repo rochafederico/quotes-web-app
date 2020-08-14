@@ -1,0 +1,42 @@
+@import '../../variables';
+@import '../../mixins';
+
+.result {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    box-sizing: border-box;
+    padding: $base-space;
+    .quote{
+        display: flex;
+        justify-content: space-between;
+        padding: ($base-space * .5) 0;
+        border-bottom: 1px solid rgb(228,228,228);
+
+        &:first-child {
+            border-top: 1px solid rgb(228,228,228);
+        }
+
+        >.cell {
+            display: flex;
+            align-items: center;
+            > img {
+                margin-right: $base-space;
+            }
+            &:last-child{
+                text-align: right;
+            }
+        }
+    }
+}
+
+.button-more {
+    margin-top: $base-space ;
+    background-color: white;
+    color: $color-primary;
+    border: 1px solid $color-primary;
+    border-radius: 40px;
+    padding: $base-space;
+    width: 100%;
+    @include shadow()
+}

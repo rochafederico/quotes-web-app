@@ -1,0 +1,52 @@
+@import '../../variables';
+
+label {
+    margin-bottom: $base-space * 1.5;
+
+    &,
+    input,
+    select {
+        width: 100%;
+        display: block;
+        box-sizing: border-box;
+    }
+
+     input,
+     select {
+        width: 100%;
+        padding: 10px;
+        box-shadow: 0 2px 8px 0 rgba(0, 0, 0, .15);
+        border: 0;
+        border-radius: $border-radius;
+        margin-top: $base-space * .5;
+        transition: border 400ms ease-in-out;
+        border: 1px solid transparent;
+
+        &.submitted:invalid {
+            border-color: red;
+            & ~ .error-input {
+                height: $base-space;
+            }
+        }
+    }
+
+    .error-input {
+        height: 0;
+        transition: height 400ms ease-in-out;
+
+        overflow: hidden;
+        color: red;
+        font-size: small;
+        margin-top: $base-space * .5;
+        
+    }
+}
+
+button[type="submit"] {
+    background-color: $color-primary;
+    border: 0;
+    border-radius: 40px;
+    color: white;
+    padding: $base-space;
+    width: 100%;
+}

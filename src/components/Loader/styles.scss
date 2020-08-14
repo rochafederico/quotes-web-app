@@ -1,0 +1,27 @@
+@import '../../variables';
+
+$border-loading: $base-space * .33;
+
+.loader {
+    border: $border-loading solid $color-primary;
+    border-top: $border-loading solid #eee;
+    border-radius: 50%;
+    width: $base-space;
+    height: $base-space;
+    animation: loader-rotate 2s linear infinite;
+    margin: $base-space auto;
+}
+@keyframes loader-rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.button-more {
+    margin-top: $base-space ;
+    background-color: white;
+    color: $color-primary;
+    border: 1px solid $color-primary;
+    border-radius: 40px;
+    padding: $base-space;
+    width: 100%;
+}

@@ -1,0 +1,3 @@
+@mixin shadow($offset-x: 0, $offset-y: 0, $blur-radius: 0, $color: black){
+    box-shadow: $offset-x $offset-y $blur-radius 0 $color;
+}

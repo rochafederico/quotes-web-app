@@ -1,0 +1,29 @@
+@import './variables';
+
+body {
+  font-family: $font-family;
+  margin: 0;
+  padding: ($base-space * 2) 0;
+  @media (max-width: 500px) {
+    padding: 0;
+  }
+  background-color: $color-body;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  main {
+    background-color: #fff;
+    padding: ($base-space * 2) ($base-space * 4);
+    @media (max-width: 500px) {
+      padding: $base-space;
+    }
+    border-radius: $border-radius;
+    box-shadow: 0 0 $base-space 0 rgba(0, 0, 0, .15);
+    > h1 {
+      font-weight: 100;
+      margin-top: 0;
+      margin-bottom: $base-space * 2;
+    }
+  }
+}
